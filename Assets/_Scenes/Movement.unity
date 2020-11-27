@@ -22033,6 +22033,50 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1797685829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797685831}
+  - component: {fileID: 1797685830}
+  m_Layer: 0
+  m_Name: BulletsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1797685830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797685829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c5bdbcbae5faf4899ae0e642b95e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 9134477127991974523, guid: b791a73ed18854d43b7798be39e85f97, type: 3}
+--- !u!4 &1797685831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797685829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.67, y: 1.982, z: -16.686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888888283
 GameObject:
   m_ObjectHideFlags: 0
@@ -23486,6 +23530,10 @@ PrefabInstance:
       propertyPath: rate
       value: 0.165
       objectReference: {fileID: 0}
+    - target: {fileID: 5397684416692319141, guid: 4569d1c0d0b970943aa8f07aabaf166e, type: 3}
+      propertyPath: pool
+      value: 
+      objectReference: {fileID: 1797685830}
     - target: {fileID: 8421710138956687111, guid: 4569d1c0d0b970943aa8f07aabaf166e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.52

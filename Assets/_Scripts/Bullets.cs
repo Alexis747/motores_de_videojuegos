@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullets : MonoBehaviour {
+public class Bullets : MonoBehaviour, IObjectPoolNotifier {
 
     [SerializeField]
     float limit;
@@ -12,11 +12,21 @@ public class Bullets : MonoBehaviour {
         float dist = Vector3.Distance (origin, transform.position);
 
         if (dist > limit) {
-            Destroy (gameObject);
+            gameObject.ReturnToPool();
         }
     }
 
     void OnCollisionEnter (Collision col) {
-        Destroy (gameObject);
+        gameObject.ReturnToPool();
+    }
+
+    public void OnCreatedOrDequeuedFromPool(bool created)
+    {
+        Debug.Log($"Was created: {created}");
+    }
+
+    public void OnEnqueuedToPool()
+    {
+        Debug.Log("Returned to pool",gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour {
     Transform firePoint;
 
     [SerializeField]
-    GameObject bulletPrefab;
+    ObjectPool pool;
 
     public float bulletForce = 20f;
 
@@ -39,7 +39,9 @@ public class PlayerShoot : MonoBehaviour {
 
     void Shoot () {
         if (_canShoot) {
-            var bullet = Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
+            var bullet = pool.GetObject();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.identity;
             var rb = bullet.GetComponent<Rigidbody> ();
             rb.AddForce (firePoint.forward * bulletForce, ForceMode.Impulse);
             _canShoot = false;
