@@ -2,11 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Bullets : MonoBehaviour, IObjectPoolNotifier {
 
     [SerializeField]
     float limit;
     public Vector3 origin;
+
+    private Rigidbody _rb;
+
+    private Rigidbody rb {
+        get{
+            if(_rb == null)
+            {
+                _rb = gameObject.GetComponent<Rigidbody>();
+            }
+            return _rb;
+        }
+    }
 
     void FixedUpdate () {
         float dist = Vector3.Distance (origin, transform.position);
@@ -22,7 +35,7 @@ public class Bullets : MonoBehaviour, IObjectPoolNotifier {
 
     public void OnCreatedOrDequeuedFromPool(bool created)
     {
-        Debug.Log($"Was created: {created}");
+        transform.rotation = Quaternion.identity;
     }
 
     public void OnEnqueuedToPool()
